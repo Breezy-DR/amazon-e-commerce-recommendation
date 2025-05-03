@@ -1,0 +1,11 @@
+streamlit
+pandas
+plotly
+numpy
+chromadb
+google
+google-genai
+google-api-core
+python-dotenv
+scikit-learn
+matplotlib

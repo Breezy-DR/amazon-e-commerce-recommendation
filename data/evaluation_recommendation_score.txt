@@ -1,0 +1,4 @@
+Average mean similarity: 0.7749000191688538
+
+Average Precision@k: 0.7569
+
