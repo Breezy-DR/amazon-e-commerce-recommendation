@@ -7,6 +7,7 @@ google
 google-genai
 google-api-core
 protobuf==3.20.*
+pysqlite3-binary
 python-dotenv
 scikit-learn
 matplotlib
