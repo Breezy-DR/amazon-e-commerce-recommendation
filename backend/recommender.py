@@ -1,5 +1,5 @@
-from chromadb import Documents, EmbeddingFunction, Embeddings
 import chromadb
+from chromadb import Documents, EmbeddingFunction, Embeddings
 import pandas as pd
 from google import genai
 from google.genai import types
