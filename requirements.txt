@@ -6,6 +6,7 @@ chromadb
 google
 google-genai
 google-api-core
+protobuf==3.20.*
 python-dotenv
 scikit-learn
 matplotlib
