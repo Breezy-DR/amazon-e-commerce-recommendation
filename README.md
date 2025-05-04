@@ -21,6 +21,6 @@ manual (khusus untuk chatbot).
 Link dashboard: https://amazon-e-commerce-recommendation.streamlit.app
 
 ### [Instalasi](https://docs.streamlit.io/get-started/installation/command-line)
-1. Buat folder virtual environment venv 
-2. Aktifkan venv 
-3. Masukkan perintah streamlit run website.py
+1. Buat folder virtual environment `.venv` 
+2. Aktifkan `.venv` 
+3. Masukkan perintah `streamlit run website.py`
