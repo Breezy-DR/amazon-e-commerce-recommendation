@@ -12,6 +12,9 @@ Tidak hanya itu, saya juga mengusulkan dan mengembangkan fitur chatbot yang disp
 rekomendasi produk yang tersedia di Amazon. Jawaban yang disediakan chatbot ini sangat membantu pengguna dalam 
 membandingkan produk-produk yang ada beserta justifikasi mengapa produk-produk tersebut direkomendasikan berdasarkan kualitasnya. Model untuk chatbot menggunakan pendekatan berbasis _generative question answering_ menggunakan LLM dari Google Gemini.
 
+Evaluasi model sistem rekomendasi menggunakan gabungan cosine similarity antar teks, precision@k, dan evaluasi 
+manual (khusus untuk chatbot).
+
 **Bahasa pemrograman**: Python 3.12 \
 **Platform aplikasi**: Streamlit
 
