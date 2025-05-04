@@ -4,6 +4,7 @@ import time
 
 st.markdown("# Chatbot Page")
 
+# Simulate a bot-like response by delaying character appearances
 def response_simulator(response):
     for word in response.split():
         yield word + " "
@@ -21,11 +22,13 @@ for message in st.session_state.messages:
 
 prompt = st.chat_input("Type your recommendation (e.g. I want a bluetooth speaker!)")
 if prompt:
+    # Input and display user message
     with st.chat_message("user"):
         st.markdown(prompt)
 
     st.session_state.messages.append({"role": "user", "content": prompt})
 
+    # Input and display assistant message
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""

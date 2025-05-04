@@ -29,6 +29,7 @@ config = types.GenerateContentConfig(
 )
 
 def format_history(messages):
+    """Create a specific conversation format consisting of AI assistant and user"""
     gemini_history = []
     for msg in messages:
         role = msg["role"]
@@ -42,17 +43,21 @@ def format_history(messages):
     return gemini_history
 
 def generate_response(query, model_name):
-
+    """Generate response using GenAI model"""
     gemini_history = format_history(st.session_state.messages)
 
+    # Create chat model
     chat_model = genai_client.chats.create(
         model=model_name,
         history=gemini_history,
         config=config
     )
 
+    # Collect user messages
     user_messages = [m for m in st.session_state.messages if m["role"] == "user"]
 
+    # If this is user's first message, recommend using a specified chat message format consisting of prompt, query,
+    # and resulting candidate products from recommendation system
     if len(user_messages) == 1:
         recommendation = recommend_similar_products(db, df, query, 11)
         recommendation = recommendation.iloc[1:]
@@ -66,6 +71,7 @@ def generate_response(query, model_name):
         Candidate products (JSON format):
         {parsed_prods}
         """
+    # If this is not the user's first message, just use the query as an input to the model
     else:
         chat_message = query
 

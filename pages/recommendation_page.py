@@ -13,6 +13,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 csv_path = os.path.join(BASE_DIR, "..", "data", "amazon_cleaned.csv")
 choice_df = pd.read_csv(csv_path)
 
+# Pick a product from a category.
 if 'recommendation_result' not in st.session_state or 'selected_product' not in st.session_state:
     categories = sorted(choice_df['final_category'].dropna().unique().tolist())
     selected_category = st.selectbox(
@@ -21,10 +22,12 @@ if 'recommendation_result' not in st.session_state or 'selected_product' not in 
         key='selected_category'
     )
 
+    # Pick a category from the product dataset
     if selected_category != "-- Select a category --":
         filtered_df = choice_df[choice_df['final_category'] == selected_category]
         products_in_category = sorted(filtered_df['product_name'].dropna().unique().tolist())
 
+        # Pick a product from the category selected
         selected_product = st.selectbox(
             "Select a product",
             ["-- Select a product --"] + products_in_category,
@@ -32,6 +35,7 @@ if 'recommendation_result' not in st.session_state or 'selected_product' not in 
         )
 
         if selected_product != "-- Select a product --":
+            # Input the product into the recommendation system
             recdf = recommend_similar_products(db, df, f"I want a product similar to {selected_product}", top_k=11)
 
             # Remove the row where the recommended product name matches the selected product
