@@ -30,7 +30,7 @@ class GeminiEmbedding(EmbeddingFunction):
     def __call__(self, inputs: Documents) -> Embeddings:
         task_type = "retrieval_document" if self.is_document else "retrieval_query"
         response = genai_client.models.embed_content(
-            model="models/text-embedding-004",
+            model="gemini-embedding-001",
             contents=inputs,
             config=types.EmbedContentConfig(task_type=task_type),
         )
