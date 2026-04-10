@@ -1,5 +1,5 @@
 import streamlit as st
-from backend.recommender import initialize_database
+from .recommender import initialize_database
 
 # Load ChromaDB database that consists of products data embedding
 @st.cache_resource
