@@ -1,6 +1,5 @@
 import streamlit as st
 import warnings
-from backend.database import db, df
 warnings.filterwarnings('ignore')
 
 recommender = st.Page(

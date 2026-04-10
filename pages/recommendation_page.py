@@ -1,6 +1,6 @@
 import streamlit as st
 from backend.recommender import recommend_similar_products
-from website import db, df
+from backend.database import load_database
 import pandas as pd
 import os
 from sklearn.metrics.pairwise import cosine_similarity
@@ -35,6 +35,9 @@ if 'recommendation_result' not in st.session_state or 'selected_product' not in 
         )
 
         if selected_product != "-- Select a product --":
+            with st.spinner("Loading recommendation database; this may take a while on first run..."):
+                db, df = load_database()
+
             # Input the product into the recommendation system
             recdf = recommend_similar_products(db, df, f"I want a product similar to {selected_product}", top_k=11)
 
